@@ -662,8 +662,8 @@ def execute_section(section,
                              results (bear names are key) as well as the
                              file dictionary.
     """
-    local_bear_list = Dependencies.resolve(local_bear_list)
-    global_bear_list = Dependencies.resolve(global_bear_list)
+    local_bear_list = Dependencies.check_circular_dependency(local_bear_list)
+    global_bear_list = Dependencies.check_circular_dependency(global_bear_list)
 
     try:
         running_processes = int(section['jobs'])
